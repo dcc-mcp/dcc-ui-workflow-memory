@@ -1,0 +1,104 @@
+tools:
+  - name: remember_ui_workflow
+    description: Record a verified UI workflow recipe and selector data.
+    source_file: scripts/remember_ui_workflow.py
+    execution: sync
+    affinity: any
+    timeout_hint_secs: 5
+    enforce_thread_affinity: true
+    annotations:
+      read_only_hint: false
+      destructive_hint: false
+      idempotent_hint: false
+      open_world_hint: false
+    input_schema:
+      type: object
+      required: ["dcc", "workflow_name", "recipe"]
+      properties:
+        dcc:
+          type: string
+        dcc_version:
+          type: string
+        tool_version:
+          type: string
+        workflow_name:
+          type: string
+        window_signature:
+          type: string
+        selector:
+          type: object
+        recipe:
+          type: array
+          items:
+            type: object
+        notes:
+          type: string
+    output_schema:
+      type: object
+
+  - name: find_ui_workflows
+    description: Find remembered UI workflow recipes and failures by DCC and workflow name.
+    source_file: scripts/find_ui_workflows.py
+    execution: sync
+    affinity: any
+    timeout_hint_secs: 5
+    enforce_thread_affinity: true
+    annotations:
+      read_only_hint: true
+      idempotent_hint: true
+      open_world_hint: false
+    input_schema:
+      type: object
+      required: ["dcc"]
+      properties:
+        dcc:
+          type: string
+        workflow_name:
+          type: string
+        dcc_version:
+          type: string
+        tool_version:
+          type: string
+        include_failures:
+          type: boolean
+          default: true
+        limit:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 10
+    output_schema:
+      type: object
+
+  - name: record_ui_workflow_failure
+    description: Record a failed selector or workflow attempt.
+    source_file: scripts/record_ui_workflow_failure.py
+    execution: sync
+    affinity: any
+    timeout_hint_secs: 5
+    enforce_thread_affinity: true
+    annotations:
+      read_only_hint: false
+      destructive_hint: false
+      idempotent_hint: false
+      open_world_hint: false
+    input_schema:
+      type: object
+      required: ["dcc", "workflow_name", "reason"]
+      properties:
+        dcc:
+          type: string
+        dcc_version:
+          type: string
+        tool_version:
+          type: string
+        workflow_name:
+          type: string
+        window_signature:
+          type: string
+        selector:
+          type: object
+        reason:
+          type: string
+    output_schema:
+      type: object

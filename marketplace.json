@@ -1,0 +1,17 @@
+{
+  "version": "1",
+  "entries": [
+    {
+      "name": "dcc-ui-workflow-memory",
+      "description": "Structured workflow memory for DCC-MCP UI automation — remember selectors, recipes, and verified failures",
+      "dcc": ["maya", "houdini", "nuke", "substance", "mari", "katana"],
+      "tags": ["ui", "workflow", "memory", "automation", "selectors"],
+      "version": "0.1.0",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/dcc-mcp/dcc-ui-workflow-memory",
+        "ref": "main"
+      }
+    }
+  ]
+}
