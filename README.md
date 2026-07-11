@@ -1,5 +1,7 @@
 # DCC-MCP UI Workflow Memory
 
+![Workflow showcase](docs/workflow-showcase.png)
+
 Structured workflow memory for DCC-MCP UI automation.
 
 Use this skill to remember selector chains, workflow recipes, and verified
