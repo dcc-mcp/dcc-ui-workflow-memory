@@ -1,6 +1,6 @@
 # DCC-MCP UI Workflow Memory
 
-![Workflow showcase](docs/workflow-showcase.png)
+![Workflow showcase](docs/images/dcc-ui-workflow-memory-showcase.webp)
 
 Structured workflow memory for DCC-MCP UI automation.
 
