@@ -46,9 +46,15 @@ def memory_round_trip() -> None:
         assert failed["success"], failed
 
 
+def wrapper_contract() -> None:
+    for name in ("find_ui_workflows", "record_ui_workflow_failure", "remember_ui_workflow"):
+        assert callable(load(name).main), f"{name}.py must expose main"
+
+
 def main() -> None:
     validate_skill()
     memory_round_trip()
+    wrapper_contract()
 
 
 if __name__ == "__main__":
