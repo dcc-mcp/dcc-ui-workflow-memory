@@ -1,8 +1,8 @@
 ---
 name: ui-workflow-memory
-description: Store and retrieve verified UI workflow selectors, recipes, and failures for DCC-MCP legacy UI automation.
+description: Store and retrieve verified selectors, recipes, and failures for DCC-MCP CUA, UI Control, and dcc-cua automation.
 license: MIT
-compatibility: "dcc-mcp-core 0.18+"
+compatibility: "dcc-mcp-core 0.20+"
 metadata:
   dcc-mcp:
     version: v0.1.0
@@ -14,7 +14,7 @@ metadata:
       - memory
       - selectors
       - automation
-    search-hint: "ui workflow memory, remember selector, workflow recipe, failed selector, legacy tool automation memory"
+    search-hint: "CUA, UI Control, dcc-cua, ui workflow memory, remember selector, workflow recipe, failed selector, UI automation memory"
     tools: tools.yaml
 ---
 
@@ -22,3 +22,7 @@ metadata:
 
 Use this skill to persist verified selector chains, UI recipes, and failures.
 Memory is advisory: workflow tools must still verify their final result.
+
+For core 0.20, record current `ui_control__snapshot`, `ui_control__find`, and
+single-step `ui_control__act` outcomes produced by dcc-cua 0.4. Do not store or
+replay removed `app_ui__*` calls.
