@@ -26,11 +26,12 @@ bounded evidence to the `review_skill_improvement` prompt from
 
 ![Workflow showcase](docs/images/dcc-ui-workflow-memory-showcase.webp)
 
-Structured workflow memory for DCC-MCP UI automation.
+Structured workflow memory for DCC-MCP CUA and UI Control automation.
 
 Use this skill to remember selector chains, workflow recipes, and verified
-failures for legacy UI tools. It stores local JSON by default and is meant to
-make repeated UI automation less exploratory over time.
+failures for core 0.20 `ui_control__*` tools backed by dcc-cua 0.4. It stores
+local JSON by default and is meant to make repeated UI automation less
+exploratory over time.
 
 ## Install
 
